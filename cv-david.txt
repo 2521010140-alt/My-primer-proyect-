@@ -1,0 +1,22 @@
+﻿David Robles 
+
+Correo: daviddanielrobleskong@gmail.com
+Teléfono: +51 929 439 605
+
+Resumen:
+Desarrollador web emergente con experiencia en HTML, CSS y JavaScript. Creo sitios profesionales, responsivos y visualmente atractivos para mostrar perfiles personales y portafolios.
+
+Habilidades:
+- HTML
+- CSS
+- JavaScript
+- Diseño responsivo
+- Experiencia de usuario
+
+Proyectos destacados:
+- Página de CV interactiva
+- Diseño visual limpio y moderno
+- Chat de asistencia básica
+
+Contacto:
+Escríbeme para recibir más detalles y ejemplos de trabajo.

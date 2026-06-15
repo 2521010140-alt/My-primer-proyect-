@@ -1,0 +1,1108 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portafolio digital de David Daniel Robles Kong</title>
+  <style>
+    :root {
+      --bg: #060912;
+      --surface: rgba(10,18,35,0.72);
+      --accent: #00e5ff;
+      --accent-soft: #38bdf8;
+      --text: #e0f2fe;
+      --muted: #94a3b8;
+      --border: rgba(56,189,248,0.18);
+      --text-soft: rgba(224,242,254,0.72);
+      --shadow: rgba(0,0,0,0.42);
+      --glow: rgba(0,229,255,0.24);
+    }
+    * {
+      box-sizing: border-box;
+    }
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', Arial, sans-serif;
+      background: radial-gradient(circle at top left, rgba(0,229,255,0.12), transparent 18%), radial-gradient(circle at bottom right, rgba(56,189,248,0.08), transparent 22%), linear-gradient(180deg, #060b16 0%, #090f1e 45%, #050812 100%);
+      color: var(--text);
+    }
+    header {
+      position: relative;
+      padding: 56px 20px 36px;
+      text-align: center;
+      overflow: hidden;
+    }
+    header::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at top center, rgba(124,58,237,0.35), transparent 45%);
+      pointer-events: none;
+      opacity: 0.7;
+    }
+    header h1 {
+      font-size: clamp(2.8rem, 5vw, 4.8rem);
+      margin: 0;
+      position: relative;
+      z-index: 1;
+    }
+    header p {
+      margin: 18px auto 0;
+      max-width: 760px;
+      color: var(--muted);
+      font-size: 1.05rem;
+      position: relative;
+      z-index: 1;
+      line-height: 1.7;
+    }
+    header .hero-buttons {
+      margin-top: 28px;
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+      position: relative;
+      z-index: 1;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 14px 24px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.18);
+      font-weight: 700;
+      cursor: pointer;
+      transition: transform 0.25s ease, background 0.25s ease, box-shadow 0.25s ease;
+      text-decoration: none;
+      color: var(--text);
+      background: linear-gradient(135deg, #38bdf8, #0ea5e9);
+      box-shadow: 0 14px 30px rgba(56,189,248,0.18);
+    }
+    .btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 20px 45px rgba(56,189,248,0.3);
+      background: linear-gradient(135deg, #22d3ee, #3b82f6);
+    }
+    .profile-photo-container {
+      margin: 28px auto 0;
+      width: max-content;
+      padding: 12px;
+      border-radius: 50%;
+      background: radial-gradient(circle at top left, rgba(99,102,241,0.28), transparent 40%), radial-gradient(circle at bottom right, rgba(236,72,153,0.2), transparent 46%);
+      box-shadow: 0 32px 80px rgba(15,23,42,0.35);
+    }
+    .profile-photo {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 6px solid rgba(255,255,255,0.25);
+      box-shadow: 0 28px 60px rgba(15,23,42,0.35);
+      animation: photoFloat 4s ease-in-out infinite;
+    }
+    .profile-caption {
+      margin-top: 12px;
+      text-align: center;
+      color: #e2e8f0;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+    }
+    .download-button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, rgba(236,72,153,0.28), rgba(249,115,22,0.28));
+      color: var(--text);
+      padding: 14px 24px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.18);
+      text-decoration: none;
+      font-weight: 700;
+      transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+      box-shadow: 0 14px 30px rgba(249,115,22,0.18);
+    }
+    .download-button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 18px 40px rgba(249,115,22,0.28);
+      background: linear-gradient(135deg, rgba(236,72,153,0.34), rgba(249,115,22,0.34));
+    }
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+      gap: 16px;
+      margin: 32px auto 0;
+      max-width: 920px;
+      position: relative;
+      z-index: 1;
+    }
+    .stat-card {
+      background: rgba(15,23,42,0.9);
+      border: 1px solid rgba(148,163,184,0.12);
+      border-radius: 18px;
+      padding: 22px;
+      text-align: center;
+      box-shadow: 0 28px 60px rgba(15,23,42,0.2);
+    }
+    .stat-card h3 {
+      margin: 0 0 12px;
+      font-size: 1rem;
+      color: var(--muted);
+      text-transform: uppercase;
+      letter-spacing: 0.14em;
+    }
+    .stat-card strong {
+      display: block;
+      font-size: 2.4rem;
+      margin-top: 8px;
+      color: #fff;
+    }
+    nav {
+      position: sticky;
+      top: 0;
+      background: rgba(15,23,42,0.95);
+      backdrop-filter: blur(10px);
+      z-index: 20;
+      border-bottom: 1px solid rgba(148,163,184,0.12);
+    }
+    nav .nav-container {
+      display: flex;
+      justify-content: center;
+      gap: 16px;
+      flex-wrap: wrap;
+      padding: 14px 18px;
+      max-width: 1140px;
+      margin: 0 auto;
+    }
+    nav a {
+      color: var(--text);
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.2s ease;
+    }
+    nav a:hover {
+      color: #a78bfa;
+    }
+    main {
+      max-width: 1140px;
+      margin: 0 auto;
+      padding: 28px 20px 48px;
+    }
+    .section-title {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 18px;
+      color: #e2e8f0;
+    }
+    .section-title::before {
+      content: '';
+      display: block;
+      width: 40px;
+      height: 2px;
+      background: linear-gradient(90deg, #7c3aed, #6366f1);
+    }
+    .card {
+      background: var(--surface);
+      color: #0f172a;
+      border-radius: 24px;
+      padding: 32px;
+      margin-bottom: 24px;
+      box-shadow: 0 20px 50px rgba(15,23,42,0.18);
+    }
+    .card h2 {
+      margin-top: 0;
+      color: #111827;
+    }
+    section#acerca {
+      background: linear-gradient(135deg, rgba(124,58,237,0.18), rgba(59,130,246,0.1));
+      border: 1px solid rgba(99,102,241,0.2);
+      box-shadow: 0 24px 60px rgba(59,130,246,0.12);
+    }
+    section#acerca .hero-grid p {
+      color: #e2e8f0;
+    }
+    section#acerca .hero-grid .hero-badge {
+      background: linear-gradient(135deg, rgba(99,102,241,0.18), rgba(124,58,237,0.16));
+      border-color: rgba(99,102,241,0.3);
+      color: #eef2ff;
+    }
+    section#acerca .hero-grid .hero-badge span {
+      background: #93c5fd;
+    }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 24px;
+      align-items: center;
+      margin-top: 40px;
+    }
+    .hero-grid p {
+      line-height: 1.8;
+      color: #cbd5e1;
+    }
+    .hero-grid .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.12);
+      padding: 14px 18px;
+      border-radius: 999px;
+      color: #e2e8f0;
+      font-weight: 700;
+      margin-bottom: 18px;
+    }
+    .hero-grid .hero-badge span {
+      display: inline-block;
+      width: 10px;
+      height: 10px;
+      background: #7c3aed;
+      border-radius: 50%;
+    }
+    .feature-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 18px;
+      margin-top: 18px;
+    }
+    .feature-card {
+      border-radius: 24px;
+      padding: 24px;
+      color: #fff;
+      min-height: 210px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      box-shadow: 0 22px 50px rgba(15,23,42,0.25);
+      transition: transform 0.35s ease, box-shadow 0.35s ease, filter 0.35s ease;
+      animation: floatCard 6s ease-in-out infinite;
+    }
+    .feature-card:nth-child(1) {
+      background: linear-gradient(135deg, #0ea5e9, #06b6d4);
+    }
+    .feature-card:nth-child(2) {
+      background: linear-gradient(135deg, #7c3aed, #2563eb);
+    }
+    .feature-card:nth-child(3) {
+      background: linear-gradient(135deg, #fb7185, #f97316);
+    }
+    .feature-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 28px 65px rgba(15,23,42,0.3);
+      filter: saturate(1.05);
+    }
+    .feature-card h3 {
+      margin-top: 0;
+      color: #fff;
+    }
+    .feature-card p {
+      line-height: 1.75;
+      color: rgba(255,255,255,0.92);
+    }
+    @keyframes floatCard {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-8px); }
+    }
+    .project-grid,
+    .skill-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+    }
+    .project-card,
+    .skill-pill,
+    .testimonial-card,
+    .blog-card,
+    .form-card {
+      border-radius: 18px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    }
+    .project-card,
+    .skill-pill {
+      background: rgba(255,255,255,0.92);
+      padding: 20px;
+      color: #111827;
+      box-shadow: 0 18px 36px rgba(15,23,42,0.12);
+      border: 1px solid rgba(56,189,248,0.12);
+    }
+    .project-card:hover,
+    .testimonial-card:hover,
+    .blog-card:hover,
+    .form-card:hover,
+    .skill-pill:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 30px 60px rgba(15,23,42,0.18);
+      border-color: rgba(56,189,248,0.22);
+    }
+    .project-card h3,
+    .skill-pill h3,
+    .testimonial-card h3,
+    .blog-card h3 {
+      margin-top: 0;
+      color: #111827;
+    }
+    .project-card p,
+    .skill-pill p,
+    .testimonial-card p,
+    .blog-card p {
+      color: #4b5563;
+      line-height: 1.7;
+    }
+    .skill-pill {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      background: #fff;
+      padding: 20px;
+      box-shadow: 0 18px 36px rgba(15,23,42,0.08);
+    }
+    .skill-pill strong {
+      color: #7c3aed;
+      font-size: 1.05rem;
+    }
+    .timeline {
+      display: grid;
+      gap: 14px;
+    }
+    .timeline-item {
+      background: #f8fafc;
+      padding: 22px;
+      border-radius: 18px;
+      border-left: 4px solid #7c3aed;
+      color: #0f172a;
+    }
+    .timeline-item span {
+      display: block;
+      color: #6b7280;
+      margin-bottom: 10px;
+    }
+    .contact-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 18px;
+    }
+    .contact-card {
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.14);
+      padding: 24px;
+      color: var(--text);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.14);
+      backdrop-filter: blur(16px);
+      transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+    }
+    .qr-card {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 18px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 14px;
+    }
+    .qr-img {
+      width: 180px;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 8px;
+      box-shadow: 0 12px 30px rgba(0,0,0,0.24);
+      background: white;
+    }
+    .contact-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 28px 60px rgba(0,0,0,0.16);
+      border-color: rgba(56,189,248,0.22);
+    }
+    .contact-card h3 {
+      margin-top: 0;
+    }
+    .contact-card a {
+      color: #a78bfa;
+      text-decoration: none;
+      word-break: break-all;
+    }
+    .chat-button {
+      position: fixed;
+      right: 24px;
+      bottom: 24px;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      border: none;
+      background: linear-gradient(135deg, #7c3aed, #6366f1);
+      color: white;
+      font-size: 1.1rem;
+      box-shadow: 0 18px 35px rgba(0,0,0,0.25);
+      cursor: pointer;
+      z-index: 30;
+    }
+    .chat-panel {
+      position: fixed;
+      right: 24px;
+      bottom: 100px;
+      width: 340px;
+      max-height: 500px;
+      background: rgba(15,23,42,0.98);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 24px;
+      box-shadow: 0 30px 70px rgba(0,0,0,0.35);
+      overflow: hidden;
+      display: none;
+      flex-direction: column;
+      z-index: 30;
+    }
+    .chat-panel.open {
+      display: flex;
+    }
+    .chat-header {
+      padding: 16px 18px;
+      background: linear-gradient(135deg, #7c3aed, #6366f1);
+      color: white;
+      font-weight: 700;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .chat-messages {
+      flex: 1;
+      padding: 16px;
+      overflow-y: auto;
+      gap: 12px;
+      display: flex;
+      flex-direction: column;
+      background: rgba(255,255,255,0.03);
+    }
+    .chat-message {
+      max-width: 100%;
+      padding: 12px 14px;
+      border-radius: 18px;
+      line-height: 1.5;
+    }
+    .chat-user {
+      align-self: flex-end;
+      background: #7c3aed;
+      color: white;
+    }
+    .chat-bot {
+      align-self: flex-start;
+      background: rgba(255,255,255,0.12);
+      color: #e2e8f0;
+    }
+    .chat-input-area {
+      display: flex;
+      gap: 10px;
+      padding: 14px 16px 18px;
+      background: rgba(255,255,255,0.04);
+      border-top: 1px solid rgba(148,163,184,0.12);
+    }
+    .chat-input {
+      flex: 1;
+      padding: 12px 14px;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.16);
+      background: rgba(255,255,255,0.08);
+      color: white;
+      outline: none;
+    }
+    .chat-input::placeholder {
+      color: rgba(255,255,255,0.6);
+    }
+    .chat-send {
+      border: none;
+      background: #a78bfa;
+      color: white;
+      border-radius: 999px;
+      padding: 12px 18px;
+      cursor: pointer;
+      font-weight: 700;
+    }
+    .form-card {
+      background: #111827;
+      border-radius: 24px;
+      padding: 28px;
+      border: 1px solid rgba(255,255,255,0.08);
+      color: var(--text);
+      box-shadow: 0 24px 50px rgba(0,0,0,0.2);
+    }
+    .form-label {
+      display: block;
+      margin-bottom: 8px;
+      color: #cbd5e1;
+      font-size: 0.95rem;
+    }
+    .form-input,
+    .form-textarea {
+      width: 100%;
+      padding: 14px 16px;
+      border-radius: 16px;
+      border: 1px solid rgba(255,255,255,0.12);
+      background: rgba(255,255,255,0.05);
+      color: white;
+      outline: none;
+      margin-bottom: 18px;
+      font-size: 1rem;
+      resize: vertical;
+    }
+    .form-input:focus,
+    .form-textarea:focus {
+      border-color: rgba(124,58,237,0.8);
+      box-shadow: 0 0 0 4px rgba(124,58,237,0.12);
+    }
+    .success-message {
+      margin-top: 12px;
+      color: #34d399;
+      font-weight: 700;
+    }
+    .fade-in,
+    .slide-up {
+      opacity: 1;
+      transform: translateY(0);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .fade-in.visible,
+    .slide-up.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .fade-in { transition-delay: 0.15s; }
+    .slide-up { transition-delay: 0.12s; }
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(18px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    .language-pill {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(124,58,237,0.12);
+      color: var(--text);
+      padding: 12px 16px;
+      border-radius: 999px;
+      font-weight: 700;
+      border: 1px solid rgba(255,255,255,0.1);
+    }
+    .testimonial-card {
+      background: rgba(255,255,255,0.95);
+      color: #0f172a;
+      padding: 26px;
+      min-height: 180px;
+      box-shadow: 0 24px 50px rgba(15,23,42,0.12);
+    }
+    .testimonial-card p {
+      color: #4b5563;
+      line-height: 1.8;
+    }
+    .testimonial-card strong {
+      display: block;
+      margin-top: 18px;
+      color: #111827;
+    }
+    .blog-card {
+      background: rgba(15,23,42,0.9);
+      border-radius: 22px;
+      padding: 22px;
+      border: 1px solid rgba(255,255,255,0.08);
+      color: var(--text);
+    }
+    .blog-card h3 {
+      margin-top: 0;
+    }
+    .blog-card p {
+      color: #cbd5e1;
+      line-height: 1.7;
+    }
+    footer {
+      text-align: center;
+      color: #94a3b8;
+      padding: 18px 20px 34px;
+      font-size: 0.95rem;
+    }
+    @media (max-width: 900px) {
+      .hero-grid {
+        grid-template-columns: 1fr;
+      }
+      .chat-panel {
+        width: calc(100% - 32px);
+        right: 16px;
+        bottom: 90px;
+      }
+    }
+    @media (max-width: 620px) {
+      .stats,
+      .feature-list,
+      .project-grid,
+      .skill-grid,
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+      header {
+        padding-top: 40px;
+      }
+      .theme-toggle {
+        width: 100%;
+      }
+    }
+    /* Global visual overhaul */
+    :root {
+      --bg: #060912;
+      --surface: rgba(10,18,35,0.72);
+      --accent: #00e5ff;
+      --accent-soft: #38bdf8;
+      --text: #e0f2fe;
+      --muted: #94a3b8;
+      --border: rgba(56,189,248,0.18);
+      --text-soft: rgba(224,242,254,0.72);
+      --shadow: rgba(0,0,0,0.42);
+      --glow: rgba(0,229,255,0.24);
+    }
+    body {
+      background: radial-gradient(circle at top left, rgba(0,229,255,0.12), transparent 18%), radial-gradient(circle at bottom right, rgba(56,189,248,0.08), transparent 22%), linear-gradient(180deg, #060b16 0%, #090f1e 45%, #050812 100%);
+      color: var(--text);
+    }
+    nav a:hover,
+    .contact-card a:hover,
+    .stat-card h3,
+    .accent-label {
+      color: var(--accent);
+    }
+    .btn {
+      background: linear-gradient(135deg, rgba(0,229,255,0.2), rgba(56,189,248,0.18));
+      border-color: rgba(255,255,255,0.12);
+      box-shadow: 0 0 20px rgba(0,229,255,0.22);
+    }
+    .btn:hover {
+      box-shadow: 0 0 40px rgba(0,229,255,0.34);
+      transform: translateY(-3px);
+    }
+    .download-button {
+      background: linear-gradient(135deg, rgba(0,229,255,0.14), rgba(56,189,248,0.14));
+      border-color: rgba(255,255,255,0.12);
+    }
+    .profile-photo-container {
+      background: rgba(255,255,255,0.06);
+      box-shadow: 0 0 35px rgba(0,229,255,0.14);
+    }
+    .profile-photo {
+      border: 5px solid var(--accent);
+      box-shadow: 0 0 40px rgba(0,229,255,0.35);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .profile-photo:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 60px rgba(0,229,255,0.5);
+    }
+    .card,
+    .project-card,
+    .testimonial-card,
+    .contact-card,
+    .blog-card,
+    .form-card,
+    .skill-pill,
+    .tech-card,
+    .stat-card {
+      background: var(--surface);
+      backdrop-filter: blur(15px);
+      border: 1px solid var(--border);
+      box-shadow: 0 30px 70px rgba(0,0,0,0.22);
+      color: var(--text);
+    }
+    .project-card,
+    .testimonial-card,
+    .contact-card,
+    .blog-card,
+    .form-card,
+    .skill-pill,
+    .tech-card {
+      padding: 24px;
+    }
+    .project-card:hover,
+    .testimonial-card:hover,
+    .contact-card:hover,
+    .blog-card:hover,
+    .form-card:hover,
+    .skill-pill:hover,
+    .tech-card:hover {
+      transform: translateY(-10px);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      box-shadow: 0 40px 90px rgba(0,0,0,0.3);
+    }
+    .project-card h3,
+    .skill-pill h3,
+    .testimonial-card h3,
+    .blog-card h3,
+    .tech-card h3 {
+      margin-top: 0;
+      color: var(--text);
+    }
+    .project-card p,
+    .skill-pill p,
+    .testimonial-card p,
+    .blog-card p,
+    .tech-card p {
+      color: var(--text-soft);
+    }
+    .project-thumb {
+      width: 100%;
+      height: 180px;
+      border-radius: 20px;
+      background-size: cover;
+      background-position: center;
+      margin-bottom: 16px;
+    }
+    .project-thumb-1 { background-image: linear-gradient(135deg, rgba(0,229,255,0.28), rgba(56,189,248,0.12)); }
+    .project-thumb-2 { background-image: linear-gradient(135deg, rgba(0,229,255,0.2), rgba(16,185,129,0.16)); }
+    .project-thumb-3 { background-image: linear-gradient(135deg, rgba(14,165,233,0.2), rgba(168,85,247,0.14)); }
+    .project-thumb-4 { background-image: linear-gradient(135deg, rgba(6,182,212,0.2), rgba(96,165,250,0.14)); }
+    .skill-bars { margin-top: 28px; display: grid; gap: 18px; }
+    .skill-row { display: grid; grid-template-columns: 1fr auto; gap: 16px; align-items: center; }
+    .skill-row span { color: var(--text); font-weight: 700; }
+    .skill-bar { background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.12); border-radius: 999px; overflow: hidden; height: 14px; }
+    .skill-fill { height: 100%; background: linear-gradient(90deg, #00e5ff, #38bdf8); transform: scaleX(0); transform-origin: left; transition: transform 1s ease; }
+    .skill-fill[data-animate='true'] { transform: scaleX(1); }
+    .hero-highlights {
+      display: inline-flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-top: 20px;
+      position: relative;
+      z-index: 1;
+      opacity: 0.95;
+    }
+    .hero-highlights span {
+      background: linear-gradient(135deg, rgba(0,229,255,0.18), rgba(56,189,248,0.12));
+      color: var(--text);
+      border: 1px solid rgba(0,229,255,0.16);
+      padding: 10px 14px;
+      border-radius: 999px;
+      font-size: 0.95rem;
+      letter-spacing: 0.02em;
+    }
+    .social-links {
+      margin: 24px auto 0;
+      display: flex;
+      justify-content: center;
+      gap: 14px;
+      flex-wrap: wrap;
+      position: relative;
+      z-index: 1;
+    }
+    .social-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 12px 18px;
+      border-radius: 999px;
+      border: 1px solid rgba(0,229,255,0.18);
+      background: rgba(255,255,255,0.04);
+      color: var(--text);
+      text-decoration: none;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+      font-weight: 700;
+    }
+    .social-link:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 0 24px rgba(0,229,255,0.22);
+      background: rgba(0,229,255,0.12);
+    }
+    .theme-toggle { cursor: pointer; }
+    .background-grid { position: absolute; inset: 0; pointer-events: none; }
+    .background-grid span { position: absolute; display: block; width: 180px; height: 180px; border-radius: 50%; background: rgba(0,229,255,0.08); filter: blur(30px); animation: float 14s ease-in-out infinite; }
+    .background-grid span:nth-child(1){ top:10%; left:8%; animation-delay:0s; }
+    .background-grid span:nth-child(2){ top:18%; right:16%; animation-delay:2s; }
+    .background-grid span:nth-child(3){ bottom:15%; left:24%; animation-delay:4s; }
+    .background-grid span:nth-child(4){ bottom:20%; right:20%; animation-delay:6s; }
+    body.light { background: #f8fafc; color: #0f172a; }
+    body.light .card, body.light .project-card, body.light .testimonial-card, body.light .contact-card, body.light .blog-card, body.light .form-card, body.light .skill-pill, body.light .tech-card, body.light .stat-card { background: rgba(255,255,255,0.92); color: #0f172a; }
+    body.light .project-card p, body.light .skill-pill p, body.light .testimonial-card p, body.light .blog-card p, body.light .tech-card p { color: #475569; }
+    body.light .chat-panel { background: rgba(248,250,252,0.95); }
+    body.light .chat-user { color: #0f172a; }
+    body.light .chat-bot { color: #0f172a; background: rgba(15,23,42,0.08); }
+    body.light .chat-input { color: #0f172a; background: rgba(248,250,252,0.9); border-color: rgba(15,23,42,0.14); }
+    body.light .theme-toggle { color: #0f172a; background: rgba(15,23,42,0.08); }
+    section#acerca { background: transparent; border: none; box-shadow: none; }
+    .tech-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 18px; margin-top: 18px; }
+    .tech-card { background: rgba(255,255,255,0.12); min-height: 120px; display: flex; align-items: center; justify-content: center; border-radius: 24px; font-size: 1rem; font-weight: 700; letter-spacing: 0.04em; color: var(--text); }
+    nav .nav-container .theme-toggle { margin-left: auto; }
+  </style>
+</head>
+<body>
+  <nav>
+    <div class="nav-container">
+      <a href="#acerca">Acerca</a>
+      <a href="#servicios">Servicios</a>
+      <a href="#logros">Logros</a>
+      <a href="#portafolio">Portafolio</a>
+      <a href="#blog">Blog</a>
+      <a href="#idiomas">Idiomas</a>
+      <a href="#tecnologias">Tecnologías</a>
+      <a href="#sigeme">Sígueme</a>
+      <a href="#contacto">Contacto</a>
+      <button class="theme-toggle" id="themeToggle" type="button">Modo Claro</button>
+    </div>
+  </nav>
+  <header>
+    <div class="background-grid">
+      <span></span>
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    <h1>David Daniel Robles Kong</h1>
+    <p class="subtitle">Estudiante de Ingeniería de Sistemas · Apasionado por la tecnología y el aprendizaje continuo.</p>
+    <p>Portafolio digital con estilo moderno, contenidos claros y una experiencia visual que muestra cuánto trabajo hay en un proyecto real de aprendizaje.</p>
+    <div class="hero-highlights">
+      <span>Diseño cuidado</span>
+      <span>Interacción útil</span>
+      <span>CV responsivo</span>
+      <span>Actualizaciones constantes</span>
+    </div>
+    <div class="social-links">
+      <a class="social-link" href="https://www.instagram.com/danny_k777ig" target="_blank" rel="noreferrer">Instagram</a>
+      <a class="social-link" href="#contacto">GitHub</a>
+      <a class="social-link" href="#contacto">LinkedIn</a>
+    </div>
+    <div class="hero-buttons">
+      <button class="btn" onclick="mostrarSaludo()">Ver saludo especial</button>
+      <a class="btn" href="mailto:Daviddanielrobleskong@gmail.com">Escríbeme</a>
+      <a class="download-button" href="cv-david.txt" download="CV-David.txt">Descargar CV</a>
+    </div>
+    <div class="profile-photo-container">
+      <img src="./mi-foto.png" alt="Foto de David Daniel Robles Kong" class="profile-photo" loading="lazy" onerror="this.onerror=null;this.src='perfil.svg';" />
+      <div class="profile-caption">David Daniel Robles Kong</div>
+    </div>
+    <p id="saludo" style="margin-top:18px;color:#cbd5e1;font-size:1rem;"></p>
+    <div class="stats">
+      <div class="stat-card fade-in">
+        <h3>Proyecto actual</h3>
+        <p>Estoy construyendo este portafolio personal con cada nueva mejora.</p>
+      </div>
+      <div class="stat-card fade-in">
+        <h3>Formación</h3>
+        <p>Estudio Ingeniería de Sistemas y aplico lo aprendido aquí.</p>
+      </div>
+      <div class="stat-card fade-in">
+        <h3>Aprendizaje</h3>
+        <p>Trabajo con constancia y motivación en cada proyecto.</p>
+      </div>
+    </div>
+  </header>
+  <main>
+    <section class="card fade-in" id="acerca">
+      <div class="section-title">Acerca de mí</div>
+      <div class="hero-grid">
+        <div>
+          <div class="hero-badge"><span></span> Estudiante en aprendizaje</div>
+          <p>Esta página es mi proyecto personal para aprender desarrollo web de forma práctica. Cada cambio refleja lo que voy aprendiendo en Ingeniería de Sistemas y en mis estudios.</p>
+          <p>Me gusta diseñar experiencias limpias, comprender cómo funciona el código y avanzar paso a paso en cada nueva sección.</p>
+        </div>
+        <div class="feature-list">
+          <div class="feature-card slide-up">
+            <h3>Diseño profesional</h3>
+            <p>Una apariencia moderna que refleja una buena presentación personal.</p>
+          </div>
+          <div class="feature-card slide-up">
+            <h3>Navegación clara</h3>
+            <p>Secciones fáciles de encontrar para que cualquier reclutador vea tu trabajo rápido.</p>
+          </div>
+          <div class="feature-card slide-up">
+            <h3>Interacción real</h3>
+            <p>Un chat y botones dinámicos que hacen el sitio más atractivo y práctico.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="card fade-in" id="servicios">
+      <div class="section-title">Servicios</div>
+      <div class="project-grid">
+        <div class="project-card">
+          <h3>Desarrollo web</h3>
+          <p>Construcción de páginas HTML/CSS/JavaScript limpias, modernas y responsivas.</p>
+        </div>
+        <div class="project-card">
+          <h3>Diseño visual</h3>
+          <p>Proyectos con estilo atractivo, colores armoniosos y buena presentación.</p>
+        </div>
+        <div class="project-card">
+          <h3>Actualización de contenidos</h3>
+          <p>Organizo secciones para que tu información personal se lea rápido y tenga impacto.</p>
+        </div>
+      </div>
+    </section>
+    <section class="card fade-in" id="logros">
+      <div class="section-title">Logros</div>
+      <div class="timeline">
+        <div class="timeline-item">
+          <span>2026 — Sitio actual</span>
+          <h3>CV web completo</h3>
+          <p>Creé un sitio interactivo con diseño moderno, chat y secciones avanzadas para un currículum profesional.</p>
+        </div>
+        <div class="timeline-item">
+          <span>2025 — Formación</span>
+          <h3>Aprendizaje continuo</h3>
+          <p>He dedicado muchas horas de estudio y práctica en desarrollo web y continúo construyendo proyectos personales.</p>
+        </div>
+        <div class="timeline-item">
+          <span>2025 — Avance</span>
+          <h3>Primeros proyectos</h3>
+          <p>Creé páginas de presentación y experiencias interactivas que muestran progreso real y dedicación.</p>
+        </div>
+      </div>
+    </section>
+    <section class="card fade-in" id="portafolio">
+      <div class="section-title">Portafolio</div>
+      <div class="project-grid">
+        <div class="project-card">
+          <h3>CV digital</h3>
+          <p>Este sitio mismo es un ejemplo de trabajo diseñado para destacar tu perfil y habilidades.</p>
+        </div>
+        <div class="project-card">
+          <h3>Chat interactivo</h3>
+          <p>Un asistente básico que responde consultas sobre tu experiencia, habilidades y contacto.</p>
+        </div>
+        <div class="project-card">
+          <h3>Diseño responsivo</h3>
+          <p>Una estructura que se adapta a móviles y pantallas grandes con gran legibilidad.</p>
+        </div>
+      </div>
+    </section>
+    <section class="card fade-in" id="blog">
+      <div class="section-title">Blog / Actualizaciones</div>
+      <div class="project-grid">
+        <div class="blog-card">
+          <h3>Innovación constante</h3>
+          <p>Estoy agregando nuevas secciones y mejorando el diseño para que el sitio crezca con cada proyecto.</p>
+        </div>
+        <div class="blog-card">
+          <h3>Aprendizajes recientes</h3>
+          <p>Aprendí a usar mejores estilos y a crear experiencias más atractivas para quien visita mi CV.</p>
+        </div>
+        <div class="blog-card">
+          <h3>Próximo paso</h3>
+          <p>Agregaré más proyectos reales, imágenes de trabajo y una versión en inglés muy pronto.</p>
+        </div>
+      </div>
+    </section>
+    <section class="card fade-in" id="idiomas">
+      <div class="section-title">Idiomas</div>
+      <div class="skill-grid">
+        <div class="project-card">
+          <h3>Español</h3>
+          <p>Nivel nativo, comunicación clara y profesional para presentaciones y proyectos.</p>
+        </div>
+        <div class="project-card">
+          <h3>Inglés básico</h3>
+          <p>Capaz de entender documentación técnica básica y trabajar con tutoriales en inglés.</p>
+        </div>
+      </div>
+    </section>
+    <section class="card fade-in" id="tecnologias">
+      <div class="section-title">Tecnologías</div>
+      <div class="tech-grid">
+        <div class="tech-card">HTML</div>
+        <div class="tech-card">CSS</div>
+        <div class="tech-card">JavaScript</div>
+        <div class="tech-card">Git</div>
+        <div class="tech-card">Responsive web</div>
+        <div class="tech-card">UI/UX básico</div>
+      </div>
+      <div class="skill-bars">
+        <div class="skill-row">
+          <span>HTML & CSS</span>
+          <strong>95%</strong>
+        </div>
+        <div class="skill-bar"><div class="skill-fill" data-animate="true" style="width:95%"></div></div>
+        <div class="skill-row">
+          <span>JavaScript</span>
+          <strong>85%</strong>
+        </div>
+        <div class="skill-bar"><div class="skill-fill" data-animate="true" style="width:85%"></div></div>
+        <div class="skill-row">
+          <span>Diseño de interfaces</span>
+          <strong>80%</strong>
+        </div>
+        <div class="skill-bar"><div class="skill-fill" data-animate="true" style="width:80%"></div></div>
+      </div>
+    </section>
+    <section class="card fade-in" id="sigeme">
+      <div class="section-title">Sígueme</div>
+      <div class="project-grid follow-grid">
+        <div class="project-card">
+          <h3>Instagram</h3>
+          <p>@danny_k777ig</p>
+          <a class="social-link" href="https://www.instagram.com/danny_k777ig" target="_blank" rel="noreferrer">Ver Instagram</a>
+        </div>
+        <div class="project-card">
+          <h3>GitHub</h3>
+          <p>Trabajo en mis repositorios y pronto compartiré el enlace público.</p>
+          <p class="social-note">GitHub en construcción</p>
+        </div>
+      </div>
+    </section>
+    <section class="card fade-in" id="contacto">
+      <div class="section-title">Contacto</div>
+      <div class="contact-grid">
+        <div class="contact-card">
+          <h3>Correo</h3>
+          <a href="mailto:Daviddanielrobleskong@gmail.com">Daviddanielrobleskong@gmail.com</a>
+        </div>
+        <div class="contact-card">
+          <h3>Instagram</h3>
+          <a href="https://www.instagram.com/danny_k777ig" target="_blank" rel="noreferrer">@danny_k777ig</a>
+        </div>
+        <div class="contact-card qr-card">
+          <h3>Accede rápido</h3>
+          <img class="qr-img" src="qr.png" alt="QR para el sitio" />
+          <p>Escanea para abrir el sitio en tu teléfono</p>
+        </div>
+        <div class="contact-card">
+          <h3>GitHub</h3>
+          <p>Pronto compartiré mi GitHub con proyectos y código.</p>
+        </div>
+        <div class="contact-card">
+          <h3>LinkedIn</h3>
+          <p>Perfil en desarrollo; lo actualizaré con más información pronto.</p>
+        </div>
+      </div>
+      <div class="form-card">
+        <form id="contactForm">
+          <label class="form-label" for="name">Nombre</label>
+          <input class="form-input" id="name" type="text" placeholder="Tu nombre" required />
+          <label class="form-label" for="email">Correo</label>
+          <input class="form-input" id="email" type="email" placeholder="tu@email.com" required />
+          <label class="form-label" for="message">Mensaje</label>
+          <textarea class="form-textarea" id="message" rows="5" placeholder="Escribe tu mensaje..." required></textarea>
+          <button class="btn" type="submit">Enviar mensaje</button>
+          <p class="success-message" id="formSuccess" aria-live="polite"></p>
+        </form>
+      </div>
+    </section>
+  </main>
+  <footer>
+    Creado con dedicación para mostrar un CV digital atractivo, muy trabajado y fácil de explorar.
+  </footer>
+  <button class="chat-button" id="chatToggle" aria-label="Abrir chat">💬</button>
+  <div class="chat-panel" id="chatPanel" aria-hidden="true">
+    <div class="chat-header">
+      <span>Asistente de CV</span>
+      <button id="chatClose" style="background:none;border:none;color:white;font-size:1.2rem;cursor:pointer;">×</button>
+    </div>
+    <div class="chat-messages" id="chatMessages">
+      <div class="chat-message chat-bot">Hola, soy tu asistente. Pregúntame sobre mi experiencia, servicios o contacto.</div>
+    </div>
+    <div class="chat-input-area">
+      <input id="chatInput" class="chat-input" type="text" placeholder="Escribe tu pregunta..." />
+      <button id="chatSend" class="chat-send">Enviar</button>
+    </div>
+  </div>
+  <script src="hola.js"></script>
+</body>
+</html>
