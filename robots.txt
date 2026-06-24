@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://2521010140-alt.github.io/My-primer-proyect-/sitemap.xml

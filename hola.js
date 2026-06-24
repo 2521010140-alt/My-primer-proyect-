@@ -1,7 +1,7 @@
 ﻿function mostrarSaludo() {
   const saludo = document.getElementById('saludo');
   if (saludo) {
-    saludo.textContent = '¡Hola! Gracias por visitar mi CV. Estoy aprendiendo a crear sitios web con HTML, CSS y JavaScript.';
+    saludo.textContent = '¡Hola! Mi página ya está lista, positiva y lista para mostrar todo mi esfuerzo en desarrollo web.';
   }
 }
 
@@ -124,6 +124,137 @@ document.addEventListener('DOMContentLoaded', function() {
   if (contactForm) {
     contactForm.addEventListener('submit', enviarFormulario);
   }
+
+  function initTypingEffect() {
+    const typedEl = document.getElementById('typedText');
+    const phrases = ['desarrollo web', 'inteligencia artificial', 'experiencia de usuario', 'proyectos tecnológicos'];
+    let index = 0;
+    let charIndex = 0;
+    let currentPhrase = '';
+    let forward = true;
+
+    function type() {
+      currentPhrase = phrases[index];
+      if (forward) {
+        typedEl.textContent = currentPhrase.slice(0, charIndex + 1);
+        charIndex++;
+        if (charIndex === currentPhrase.length) {
+          forward = false;
+          setTimeout(type, 1000);
+          return;
+        }
+      } else {
+        typedEl.textContent = currentPhrase.slice(0, charIndex - 1);
+        charIndex--;
+        if (charIndex === 0) {
+          forward = true;
+          index = (index + 1) % phrases.length;
+        }
+      }
+      setTimeout(type, forward ? 100 : 50);
+    }
+
+    if (typedEl) type();
+  }
+
+  function initCounters() {
+    const counters = document.querySelectorAll('.counter');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const counter = entry.target;
+          const target = +counter.closest('.counter-card').dataset.target;
+          let value = 0;
+          const increment = Math.ceil(target / 80);
+          const update = () => {
+            value += increment;
+            counter.textContent = value > target ? target : value;
+            if (value < target) {
+              requestAnimationFrame(update);
+            }
+          };
+          update();
+          observer.unobserve(counter);
+        }
+      });
+    }, { threshold: 0.6 });
+
+    counters.forEach(counter => observer.observe(counter));
+  }
+
+  function initScrollTop() {
+    const scrollTop = document.getElementById('scrollTop');
+    if (!scrollTop) return;
+    window.addEventListener('scroll', () => {
+      const shouldShow = window.scrollY > 320;
+      scrollTop.classList.toggle('show', shouldShow);
+    });
+    scrollTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+  }
+
+  function initParticles() {
+    const canvas = document.getElementById('particleCanvas');
+    if (!canvas || !canvas.getContext) return;
+    const ctx = canvas.getContext('2d');
+    const particles = [];
+    const colors = ['#00e5ff', '#38bdf8', '#0ea5e9', '#ffffff'];
+    const resize = () => {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    };
+    window.addEventListener('resize', resize);
+    resize();
+
+    function createParticle() {
+      return {
+        x: Math.random() * canvas.width,
+        y: Math.random() * canvas.height,
+        vx: (Math.random() - 0.5) * 0.9,
+        vy: (Math.random() - 0.5) * 0.9,
+        radius: Math.random() * 2 + 1,
+        color: colors[Math.floor(Math.random() * colors.length)],
+      };
+    }
+
+    for (let i = 0; i < 100; i++) particles.push(createParticle());
+
+    function draw() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      particles.forEach((p, index) => {
+        p.x += p.vx;
+        p.y += p.vy;
+        if (p.x < 0 || p.x > canvas.width) p.vx *= -1;
+        if (p.y < 0 || p.y > canvas.height) p.vy *= -1;
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+        ctx.fillStyle = p.color;
+        ctx.fill();
+        if (index % 12 === 0) {
+          ctx.strokeStyle = p.color;
+          ctx.lineWidth = 0.4;
+          ctx.beginPath();
+          ctx.moveTo(p.x, p.y);
+          const next = particles[(index + 8) % particles.length];
+          ctx.lineTo(next.x, next.y);
+          ctx.stroke();
+        }
+      });
+      requestAnimationFrame(draw);
+    }
+    draw();
+  }
+
+  function initAOS() {
+    if (window.AOS) {
+      window.AOS.init({ duration: 900, once: true, mirror: false });
+    }
+  }
+
+  initTypingEffect();
+  initCounters();
+  initScrollTop();
+  initParticles();
+  initAOS();
 
   loadTheme();
 });

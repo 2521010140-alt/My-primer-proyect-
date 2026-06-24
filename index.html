@@ -4,10 +4,29 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Portafolio digital de David Daniel Robles Kong</title>
+  <meta name="description" content="Portafolio digital de David Daniel Robles Kong: proyectos, habilidades, certificado y contacto para oportunidades en desarrollo web e ingeniería de sistemas." />
+  <meta name="author" content="David Daniel Robles Kong" />
+  <meta name="keywords" content="desarrollo web, portafolio digital, ingeniería de sistemas, David Daniel, proyectos web, frontend, backend, programación" />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://2521010140-alt.github.io/My-primer-proyect-/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:title" content="Portafolio digital de David Daniel Robles Kong" />
+  <meta property="og:description" content="Portafolio digital de David Daniel Robles Kong: proyectos, habilidades, certificado y contacto para oportunidades en desarrollo web e ingeniería de sistemas." />
+  <meta property="og:image" content="https://2521010140-alt.github.io/My-primer-proyect-/logo-drk.svg" />
+  <meta property="og:url" content="https://2521010140-alt.github.io/My-primer-proyect-/" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Portafolio digital de David Daniel Robles Kong" />
+  <meta name="twitter:description" content="Portafolio digital de David Daniel Robles Kong: proyectos, habilidades, certificado y contacto para oportunidades en desarrollo web e ingeniería de sistemas." />
+  <meta name="theme-color" content="#020409" />
+  <link rel="icon" href="logo-drk.svg" type="image/svg+xml" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <style>
     :root {
-      --bg: #060912;
-      --surface: rgba(10,18,35,0.72);
+      --bg: #020409;
+      --bg-dark: #04070f;
+      --surface: rgba(11,19,38,0.85);
+      --surface-strong: rgba(9,15,29,0.94);
       --accent: #00e5ff;
       --accent-soft: #38bdf8;
       --text: #e0f2fe;
@@ -201,6 +220,297 @@
       width: 40px;
       height: 2px;
       background: linear-gradient(90deg, #7c3aed, #6366f1);
+    }
+    .brand-logo {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      color: var(--text);
+      font-weight: 700;
+    }
+    .logo-icon {
+      width: 56px;
+      height: 56px;
+      border-radius: 16px;
+      background: linear-gradient(135deg, #00e5ff, #1d4ed8);
+      padding: 10px;
+      box-shadow: 0 0 24px rgba(0,229,255,0.28);
+    }
+    .brand-logo strong {
+      display: block;
+      font-size: 1rem;
+      letter-spacing: 0.12em;
+    }
+    .brand-logo span {
+      display: block;
+      font-size: 0.75rem;
+      color: var(--muted);
+      letter-spacing: 0.05em;
+    }
+    .hero-logo {
+      margin: 28px auto 16px;
+      width: max-content;
+      position: relative;
+      z-index: 1;
+    }
+    .hero-logo img {
+      width: 140px;
+      height: auto;
+      display: block;
+      border-radius: 26px;
+      box-shadow: 0 22px 60px rgba(0,229,255,0.3);
+      border: 2px solid rgba(0,229,255,0.24);
+      background: rgba(255,255,255,0.05);
+      padding: 10px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .hero-logo img:hover {
+      transform: scale(1.02);
+      box-shadow: 0 28px 80px rgba(0,229,255,0.4);
+    }
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      justify-content: center;
+      align-items: center;
+      overflow-x: auto;
+      padding-bottom: 4px;
+    }
+    .nav-links a {
+      padding: 10px 12px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.05);
+      transition: background 0.2s ease, color 0.2s ease;
+    }
+    .nav-links a:hover {
+      background: rgba(0,229,255,0.16);
+      color: #fff;
+    }
+    .typed-text {
+      margin-top: 18px;
+      color: var(--text-soft);
+      font-size: 1.05rem;
+      text-align: center;
+      max-width: 760px;
+      margin-left: auto;
+      margin-right: auto;
+      line-height: 1.7;
+    }
+    .cursor {
+      display: inline-block;
+      width: 1ch;
+      animation: blink 1s steps(2, start) infinite;
+      color: var(--accent);
+    }
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0; }
+    }
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 18px;
+    }
+    .counter-card {
+      background: rgba(10,18,35,0.9);
+      color: var(--text);
+      border: 1px solid rgba(0,229,255,0.16);
+    }
+    .project-grid-large {
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    }
+    .project-card {
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(0,229,255,0.18);
+      color: var(--text);
+      backdrop-filter: blur(18px);
+    }
+    .project-card h3 {
+      color: #fff;
+    }
+    .project-card p {
+      color: rgba(226,232,240,0.9);
+    }
+    .project-thumb {
+      width: 100%;
+      height: 180px;
+      border-radius: 22px;
+      margin-bottom: 16px;
+      background-size: cover;
+      background-position: center;
+      border: 1px solid rgba(255,255,255,0.12);
+      box-shadow: inset 0 0 0 1px rgba(255,255,255,0.05);
+    }
+    .project-thumb-1 { background-image: linear-gradient(135deg, rgba(0,229,255,0.25), rgba(29,78,216,0.3)); }
+    .project-thumb-2 { background-image: linear-gradient(135deg, rgba(79,70,229,0.22), rgba(14,165,233,0.24)); }
+    .project-thumb-3 { background-image: linear-gradient(135deg, rgba(59,130,246,0.22), rgba(14,165,233,0.2)); }
+    .project-tech {
+      margin: 16px 0 12px;
+      color: rgba(224,242,254,0.8);
+      font-size: 0.95rem;
+    }
+    .project-button {
+      width: fit-content;
+    }
+    .certificate-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      gap: 18px;
+      margin-top: 16px;
+    }
+    .certificate-card {
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(0,229,255,0.18);
+      padding: 24px;
+      border-radius: 24px;
+      color: var(--text);
+      box-shadow: 0 20px 50px rgba(0,0,0,0.22);
+    }
+    .certificate-card h3 {
+      margin-top: 0;
+      color: #fff;
+    }
+    .learn-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 18px;
+      margin-top: 18px;
+    }
+    .github-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 18px;
+      margin-top: 18px;
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr 1fr;
+      gap: 24px;
+      align-items: center;
+      padding-bottom: 18px;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      margin-bottom: 16px;
+    }
+    .footer-brand {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      color: var(--text);
+    }
+    .footer-logo {
+      width: 44px;
+      height: 44px;
+    }
+    .footer-links,
+    .footer-social {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      justify-content: flex-end;
+      align-items: center;
+    }
+    .footer-links a,
+    .footer-social a {
+      color: var(--text);
+      text-decoration: none;
+      transition: color 0.2s ease;
+    }
+    .footer-social a {
+      font-size: 1.1rem;
+    }
+    .footer-links a:hover,
+    .footer-social a:hover {
+      color: var(--accent);
+    }
+    .scroll-top {
+      position: fixed;
+      right: 22px;
+      bottom: 100px;
+      width: 54px;
+      height: 54px;
+      border-radius: 50%;
+      border: none;
+      background: linear-gradient(135deg, #00e5ff, #1d4ed8);
+      color: white;
+      font-size: 1.1rem;
+      box-shadow: 0 18px 40px rgba(0,0,0,0.32);
+      cursor: pointer;
+      z-index: 40;
+      display: none;
+      align-items: center;
+      justify-content: center;
+    }
+    .scroll-top.show {
+      display: inline-flex;
+    }
+    .timeline-item {
+      background: rgba(255,255,255,0.05);
+      border-left: 4px solid #00e5ff;
+      color: var(--text);
+      box-shadow: 0 20px 50px rgba(0,0,0,0.18);
+    }
+    .timeline-item span {
+      color: var(--muted);
+    }
+    .timeline-item h3 {
+      color: #fff;
+    }
+    .timeline-item p {
+      color: rgba(224,242,254,0.82);
+    }
+    .testimonial-card,
+    .blog-card,
+    .contact-card,
+    .form-card,
+    .skill-pill,
+    .tech-card {
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(0,229,255,0.18);
+    }
+    .blog-card {
+      color: var(--text);
+    }
+    .blog-card p {
+      color: rgba(224,242,254,0.84);
+    }
+    @media (max-width: 900px) {
+      .nav-container {
+        flex-direction: column;
+        align-items: stretch;
+      }
+      .nav-links {
+        justify-content: center;
+      }
+      .footer-grid {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+      .footer-links,
+      .footer-social {
+        justify-content: center;
+      }
+    }
+    @media (max-width: 620px) {
+      .stats,
+      .feature-list,
+      .project-grid,
+      .skill-grid,
+      .contact-grid,
+      .certificate-grid,
+      .learn-grid,
+      .github-grid {
+        grid-template-columns: 1fr;
+      }
+      .scroll-top {
+        right: 16px;
+        bottom: 88px;
+      }
+      .hero-highlights,
+      .social-links {
+        flex-direction: column;
+        align-items: center;
+      }
     }
     .card {
       background: var(--surface);
@@ -487,7 +797,7 @@
     }
     .chat-bot {
       align-self: flex-start;
-      background: rgba(255,255,255,0.12);
+      background: rgba(42, 19, 19, 0.12);
       color: #e2e8f0;
     }
     .chat-input-area {
@@ -835,17 +1145,31 @@
   </style>
 </head>
 <body>
+  <canvas id="particleCanvas" aria-hidden="true"></canvas>
   <nav>
     <div class="nav-container">
-      <a href="#acerca">Acerca</a>
-      <a href="#servicios">Servicios</a>
-      <a href="#logros">Logros</a>
-      <a href="#portafolio">Portafolio</a>
-      <a href="#blog">Blog</a>
-      <a href="#idiomas">Idiomas</a>
-      <a href="#tecnologias">Tecnologías</a>
-      <a href="#sigeme">Sígueme</a>
-      <a href="#contacto">Contacto</a>
+      <div class="brand-logo">
+        <img src="logo-drk.svg" alt="Logo DRK" class="logo-icon" />
+        <div>
+          <strong>DRK</strong>
+          <span>David Robles Kong</span>
+        </div>
+      </div>
+      <div class="nav-links">
+        <a href="#acerca">Acerca</a>
+        <a href="#servicios">Servicios</a>
+        <a href="#misproyectos">Mis Proyectos</a>
+        <a href="#certificados">Certificados</a>
+        <a href="#logros">Logros</a>
+        <a href="#portafolio">Portafolio</a>
+        <a href="#blog">Blog</a>
+        <a href="#idiomas">Idiomas</a>
+        <a href="#tecnologias">Tecnologías</a>
+        <a href="#aprendiendo">Aprendiendo</a>
+        <a href="#sigeme">Sígueme</a>
+        <a href="#github">GitHub</a>
+        <a href="#contacto">Contacto</a>
+      </div>
       <button class="theme-toggle" id="themeToggle" type="button">Modo Claro</button>
     </div>
   </nav>
@@ -857,18 +1181,23 @@
       <span></span>
     </div>
     <h1>David Daniel Robles Kong</h1>
+    <div class="hero-logo" data-aos="zoom-in">
+      <img src="logo-drk.svg" alt="Logo DRK" />
+    </div>
     <p class="subtitle">Estudiante de Ingeniería de Sistemas · Apasionado por la tecnología y el aprendizaje continuo.</p>
-    <p>Portafolio digital con estilo moderno, contenidos claros y una experiencia visual que muestra cuánto trabajo hay en un proyecto real de aprendizaje.</p>
+    <p>Portafolio digital con estilo moderno, contenido optimista y una experiencia visual que transmite confianza y energía positiva.</p>
     <div class="hero-highlights">
       <span>Diseño cuidado</span>
       <span>Interacción útil</span>
       <span>CV responsivo</span>
       <span>Actualizaciones constantes</span>
+      <span>Energía positiva</span>
     </div>
+    <p class="typed-text" aria-label="Mensaje dinámico">Soy un estudiante avanzado de Ingeniería de Sistemas y futuro desarrollador de software especializado en <span id="typedText"></span><span class="cursor">|</span></p>
     <div class="social-links">
-      <a class="social-link" href="https://www.instagram.com/danny_k777ig" target="_blank" rel="noreferrer">Instagram</a>
-      <a class="social-link" href="#contacto">GitHub</a>
-      <a class="social-link" href="#contacto">LinkedIn</a>
+      <a class="social-link" href="https://www.instagram.com/danny_k777ig" target="_blank" rel="noreferrer"><i class="fa-brands fa-instagram"></i> Instagram</a>
+      <a class="social-link" href="https://github.com/2521010140-alt" target="_blank" rel="noreferrer"><i class="fa-brands fa-github"></i> GitHub</a>
+      <a class="social-link" href="#contacto"><i class="fa-brands fa-linkedin"></i> LinkedIn</a>
     </div>
     <div class="hero-buttons">
       <button class="btn" onclick="mostrarSaludo()">Ver saludo especial</button>
@@ -896,7 +1225,28 @@
     </div>
   </header>
   <main>
-    <section class="card fade-in" id="acerca">
+    <section class="card fade-in" id="estadisticas" data-aos="fade-up">
+      <div class="section-title">Estadísticas Profesionales</div>
+      <div class="stats stats-grid">
+        <div class="stat-card counter-card" data-target="18">
+          <h3>Proyectos realizados</h3>
+          <strong class="counter">0</strong>
+        </div>
+        <div class="stat-card counter-card" data-target="12">
+          <h3>Tecnologías aprendidas</h3>
+          <strong class="counter">0</strong>
+        </div>
+        <div class="stat-card counter-card" data-target="450">
+          <h3>Horas de estudio</h3>
+          <strong class="counter">0</strong>
+        </div>
+        <div class="stat-card counter-card" data-target="5">
+          <h3>Certificados obtenidos</h3>
+          <strong class="counter">0</strong>
+        </div>
+      </div>
+    </section>
+    <section class="card fade-in" id="acerca" data-aos="fade-up">
       <div class="section-title">Acerca de mí</div>
       <div class="hero-grid">
         <div>
@@ -920,7 +1270,24 @@
         </div>
       </div>
     </section>
-    <section class="card fade-in" id="servicios">
+    <section class="card fade-in" id="objetivos" data-aos="fade-up">
+      <div class="section-title">Objetivos Profesionales</div>
+      <div class="feature-list">
+        <div class="feature-card">
+          <h3>Desarrollo web avanzado</h3>
+          <p>Construir soluciones escalables, limpias y con experiencia de usuario premium.</p>
+        </div>
+        <div class="feature-card">
+          <h3>Inteligencia artificial</h3>
+          <p>Aprender e integrar IA en proyectos para crear productos más inteligentes.</p>
+        </div>
+        <div class="feature-card">
+          <h3>Trabajo colaborativo</h3>
+          <p>Ser parte de equipos ágiles y entregar software con altos estándares de calidad.</p>
+        </div>
+      </div>
+    </section>
+    <section class="card fade-in" id="servicios" data-aos="fade-up">
       <div class="section-title">Servicios</div>
       <div class="project-grid">
         <div class="project-card">
@@ -937,23 +1304,76 @@
         </div>
       </div>
     </section>
+    <section class="card fade-in" id="misproyectos" data-aos="fade-up">
+      <div class="section-title">Mis Proyectos</div>
+      <div class="project-grid project-grid-large">
+        <div class="project-card">
+          <div class="project-thumb project-thumb-1"></div>
+          <h3>Sitio Portafolio DRK</h3>
+          <p>Un portafolio moderno con identidad visual, animaciones y experiencia premium para presentar mi perfil.</p>
+          <p class="project-tech"><strong>Tecnologías:</strong> HTML, CSS, JavaScript, AOS</p>
+          <a class="btn project-button" href="#portafolio">Ver proyecto</a>
+        </div>
+        <div class="project-card">
+          <div class="project-thumb project-thumb-2"></div>
+          <h3>Asistente interactivo</h3>
+          <p>Un chat en la página que responde preguntas del visitante sobre experiencia, servicios y contacto.</p>
+          <p class="project-tech"><strong>Tecnologías:</strong> JavaScript, DOM, animaciones</p>
+          <a class="btn project-button" href="#contacto">Ver proyecto</a>
+        </div>
+        <div class="project-card">
+          <div class="project-thumb project-thumb-3"></div>
+          <h3>CV digital responsivo</h3>
+          <p>Diseño adaptable y profesional que funciona en móviles, tablet y escritorio con una experiencia fluida.</p>
+          <p class="project-tech"><strong>Tecnologías:</strong> CSS Grid, Flexbox, diseño responsivo</p>
+          <a class="btn project-button" href="#acerca">Ver proyecto</a>
+        </div>
+      </div>
+    </section>
+    <section class="card fade-in" id="certificados" data-aos="fade-up">
+      <div class="section-title">Certificados</div>
+      <div class="certificate-grid">
+        <div class="certificate-card">
+          <h3>Certificación en Desarrollo Web</h3>
+          <p>Validé mis habilidades en front-end con proyectos reales en HTML, CSS y JavaScript.</p>
+        </div>
+        <div class="certificate-card">
+          <h3>Certificación en Inteligencia Artificial</h3>
+          <p>Formación en conceptos de IA, aprendizaje automático y soluciones tecnológicas modernas.</p>
+        </div>
+        <div class="certificate-card">
+          <h3>Certificación en Git y GitHub</h3>
+          <p>Competencia en control de versiones, ramas y colaboración profesional en repositorios.</p>
+        </div>
+      </div>
+    </section>
     <section class="card fade-in" id="logros">
       <div class="section-title">Logros</div>
       <div class="timeline">
         <div class="timeline-item">
-          <span>2026 — Sitio actual</span>
-          <h3>CV web completo</h3>
-          <p>Creé un sitio interactivo con diseño moderno, chat y secciones avanzadas para un currículum profesional.</p>
+          <span>2023 — Inicio de universidad</span>
+          <h3>Comienzo en Ingeniería de Sistemas</h3>
+          <p>Inició el camino técnico con base en algoritmos, bases de datos y programación.</p>
         </div>
         <div class="timeline-item">
-          <span>2025 — Formación</span>
-          <h3>Aprendizaje continuo</h3>
-          <p>He dedicado muchas horas de estudio y práctica en desarrollo web y continúo construyendo proyectos personales.</p>
+          <span>2024 — Aprendizaje de HTML</span>
+          <h3>Primera estructura web</h3>
+          <p>Construí mis primeras páginas con HTML y aprendí a organizar contenido en la web.</p>
         </div>
         <div class="timeline-item">
-          <span>2025 — Avance</span>
-          <h3>Primeros proyectos</h3>
-          <p>Creé páginas de presentación y experiencias interactivas que muestran progreso real y dedicación.</p>
+          <span>2024 — Aprendizaje de CSS</span>
+          <h3>Diseño y estilo</h3>
+          <p>Creé interfaces visuales profesionales, responsivas y con transición moderna.</p>
+        </div>
+        <div class="timeline-item">
+          <span>2025 — Aprendizaje de JavaScript</span>
+          <h3>Interacción dinámica</h3>
+          <p>Implementé lógica, animaciones y componentes interactivos para mejorar la experiencia.</p>
+        </div>
+        <div class="timeline-item">
+          <span>2026 — Proyectos futuros</span>
+          <h3>Meta: software real</h3>
+          <p>Mi próximo objetivo es lanzar aplicaciones completas con IA y servicios web.</p>
         </div>
       </div>
     </section>
@@ -1032,6 +1452,15 @@
         <div class="skill-bar"><div class="skill-fill" data-animate="true" style="width:80%"></div></div>
       </div>
     </section>
+    <section class="card fade-in" id="aprendiendo" data-aos="fade-up">
+      <div class="section-title">Tecnologías que estoy aprendiendo</div>
+      <div class="learn-grid">
+        <div class="project-card"><h3>React</h3><p>Mejorando interfaces con componentes, estados y hooks.</p></div>
+        <div class="project-card"><h3>Node.js</h3><p>Construyendo backend y APIs para proyectos web completos.</p></div>
+        <div class="project-card"><h3>Python</h3><p>Programación general y scripts para procesamiento de datos.</p></div>
+        <div class="project-card"><h3>Machine Learning</h3><p>Aplicando modelos básicos para análisis y automatización.</p></div>
+      </div>
+    </section>
     <section class="card fade-in" id="sigeme">
       <div class="section-title">Sígueme</div>
       <div class="project-grid follow-grid">
@@ -1042,8 +1471,26 @@
         </div>
         <div class="project-card">
           <h3>GitHub</h3>
-          <p>Trabajo en mis repositorios y pronto compartiré el enlace público.</p>
-          <p class="social-note">GitHub en construcción</p>
+          <p>Mi perfil activo con proyectos reales y código en crecimiento.</p>
+          <a class="social-link" href="https://github.com/2521010140-alt" target="_blank" rel="noreferrer">Visitar GitHub</a>
+        </div>
+      </div>
+    </section>
+    <section class="card fade-in" id="github" data-aos="fade-up">
+      <div class="section-title">GitHub</div>
+      <div class="github-grid">
+        <div class="project-card">
+          <h3>Repositorios destacados</h3>
+          <p>Proyectos de portafolio, sitio web y asistente interactivo publicados en GitHub.</p>
+          <p><strong>Repos:</strong> 8+</p>
+        </div>
+        <div class="project-card">
+          <h3>Lenguajes utilizados</h3>
+          <p>JavaScript, HTML, CSS, Python y herramientas de desarrollo moderno.</p>
+        </div>
+        <div class="project-card">
+          <h3>Perfil activo</h3>
+          <p><a class="social-link" href="https://github.com/2521010140-alt" target="_blank" rel="noreferrer">Visitar mi perfil en GitHub</a></p>
         </div>
       </div>
     </section>
@@ -1065,7 +1512,8 @@
         </div>
         <div class="contact-card">
           <h3>GitHub</h3>
-          <p>Pronto compartiré mi GitHub con proyectos y código.</p>
+          <a href="https://github.com/2521010140-alt" target="_blank" rel="noreferrer">https://github.com/2521010140-alt</a>
+          <p>Perfil activo con proyectos y repositorios públicos.</p>
         </div>
         <div class="contact-card">
           <h3>LinkedIn</h3>
@@ -1087,8 +1535,29 @@
     </section>
   </main>
   <footer>
-    Creado con dedicación para mostrar un CV digital atractivo, muy trabajado y fácil de explorar.
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <img src="logo-drk.svg" alt="Logo DRK" class="footer-logo" />
+        <div>
+          <strong>DRK</strong>
+          <span>Ing. de Sistemas · Futuro desarrollador</span>
+        </div>
+      </div>
+      <div class="footer-links">
+        <a href="#acerca">Acerca</a>
+        <a href="#misproyectos">Proyectos</a>
+        <a href="#certificados">Certificados</a>
+        <a href="#contacto">Contacto</a>
+      </div>
+      <div class="footer-social">
+        <a href="https://www.instagram.com/danny_k777ig" target="_blank" rel="noreferrer"><i class="fa-brands fa-instagram"></i></a>
+        <a href="https://github.com/2521010140-alt" target="_blank" rel="noreferrer"><i class="fa-brands fa-github"></i></a>
+        <a href="#contacto"><i class="fa-brands fa-linkedin"></i></a>
+      </div>
+    </div>
+    <p>© 2026 DRK. Todos los derechos reservados.</p>
   </footer>
+  <button class="scroll-top" id="scrollTop" aria-label="Volver arriba"><i class="fa-solid fa-arrow-up"></i></button>
   <button class="chat-button" id="chatToggle" aria-label="Abrir chat">💬</button>
   <div class="chat-panel" id="chatPanel" aria-hidden="true">
     <div class="chat-header">
@@ -1103,6 +1572,7 @@
       <button id="chatSend" class="chat-send">Enviar</button>
     </div>
   </div>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
   <script src="hola.js"></script>
 </body>
 </html>
