@@ -1,7 +1,7 @@
 ﻿function mostrarSaludo() {
   const saludo = document.getElementById('saludo');
   if (saludo) {
-    saludo.textContent = '¡Hola! Mi página ya está lista, positiva y lista para mostrar todo mi esfuerzo en desarrollo web.';
+    saludo.textContent = '¡Hola! Gracias por visitar mi CV. Estoy aprendiendo a crear sitios web con HTML, CSS y JavaScript.';
   }
 }
 
@@ -72,6 +72,7 @@ document.addEventListener('DOMContentLoaded', function() {
   function toggleChat(open) {
     chatPanel.classList.toggle('open', open);
     chatPanel.setAttribute('aria-hidden', open ? 'false' : 'true');
+    chatToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
     if (open) {
       chatInput.focus();
     }
@@ -111,6 +112,7 @@ document.addEventListener('DOMContentLoaded', function() {
     setTheme(activeTheme);
   });
 
+  chatToggle.setAttribute('aria-expanded', 'false');
   chatToggle.addEventListener('click', () => toggleChat(true));
   chatClose.addEventListener('click', () => toggleChat(false));
   chatSend.addEventListener('click', enviarMensaje);
